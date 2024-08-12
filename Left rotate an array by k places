@@ -1,0 +1,20 @@
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        vector<int> temp(nums.size());
+        for(int i=0;i<nums.size();i++){
+            temp[(i+k)%nums.size()]=nums[i];
+        }
+        nums=temp;
+        // int i,j,end=nums.size()-1,temp;
+        // for(i=0;i<k;i++){
+        //     temp=nums[end];
+        //     // cout<<nums[end]<<endl;
+        //     for(j=end;j>0;j--){
+        //         nums[j]=nums[j-1];
+        //         // cout<<nums[j]<<endl;
+        //     }
+        //     nums[0]=temp;
+        // }
+    }
+};
