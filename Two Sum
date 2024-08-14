@@ -1,0 +1,54 @@
+//leetcode
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> ans;
+        map<int,int> mp;
+        for(int i=0;i<nums.size();i++){
+            int compliment=target-nums[i];
+            if(mp.find(compliment)!=mp.end()){
+                ans.push_back(mp[compliment]);
+                ans.push_back(i);
+                break;
+            }
+            mp[nums[i]]=i;
+        }
+        return ans;
+
+        //this method is wrong for [3,3] case as map cannot find diff b/w identical nums
+        // vector<int> ans;
+        // map<int,int> mp;
+        // for(int i=0;i<nums.size();i++){
+        //     mp[nums[i]]=i;
+        // }
+        // sort(nums.begin(),nums.end());
+        // int start=0;
+        // int end=nums.size()-1;
+        // while(start<end){
+        //     if(nums[start]+nums[end]==target){
+        //         ans.push_back(mp[nums[start]]);
+        //         ans.push_back(mp[nums[end]]);
+        //         break;
+        //     }
+        //     else if(nums[start]+nums[end]>target){
+        //         end--;
+        //     }
+        //     else if(nums[start]+nums[end]<target){
+        //         start++;
+        //     }
+        // }
+
+        //method-2
+        // for(int i=0;i<nums.size();i++){
+        //     // if(nums[i]<=target){
+        //         for(int j=i+1;j<nums.size();j++){
+        //             if(nums[i]+nums[j]==target){
+        //                 ans.push_back(i);
+        //                 ans.push_back(j);
+        //             }
+        //         }
+        //     // }
+        // }
+        return ans;
+    }
+};
