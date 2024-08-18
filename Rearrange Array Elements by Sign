@@ -1,0 +1,47 @@
+//leetcode
+class Solution {
+public:
+    vector<int> rearrangeArray(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n);  // Create an array of the same size
+        int pos = 0, neg = 1;  // Pointers for positive and negative placement
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > 0) {
+                ans[pos] = nums[i];
+                pos += 2;  // Move to the next position for positive numbers
+            } else {
+                ans[neg] = nums[i];
+                neg += 2;  // Move to the next position for negative numbers
+            }
+        }
+
+        return ans;
+    }
+};
+
+// class Solution {
+// public:
+//     vector<int> rearrangeArray(vector<int>& nums) {
+//         int n=nums.size();
+//         vector<int> ans;
+//         int i=0, j=0;
+//         while(i<n && j<n){
+//             if(nums[i]>0 && nums[j]<0){
+//                 ans.push_back(nums[i++]);
+//                 ans.push_back(nums[j++]);
+//             }
+//             else if(nums[i]>0 && nums[j]>0){
+//                 j++;
+//             }
+//             else if(nums[i]<0 && nums[j]<0){
+//                 i++;
+//             }
+//             else if(nums[i]<0 && nums[j]>0){
+//                 i++;
+//                 j++;
+//             }
+//         }
+//         return ans;
+//     }
+// };
